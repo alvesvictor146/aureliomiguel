@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelio Miguel | Video Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <header>
+        <div class="logo">AM.</div>
+        <nav>
+            <a href="#work" class="magnetic">Trabalhos</a>
+            <a href="#about" class="magnetic">Sobre</a>
+            <a href="#contact" class="magnetic">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal-text">Transformando Vídeos em <br><span class="accent">Obras Cinematográficas</span></h1>
+            <p class="blur-reveal">Aurelio Miguel - Editor de Vídeo Profissional & Filmmaker</p>
+            <button class="magnetic cta-btn">Entre em contato</button>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2 class="reveal-text">Sou Aurelio, um <br>Filmmaker Profissional</h2>
+                <p class="blur-reveal" style="margin-bottom: 2rem; line-height: 1.6; font-size: 1.2rem;">Especializado em edição de vídeo de alto nível, correção de cor e sound design. Cada frame conta uma história, e estou aqui para torná-la inesquecível. Vamos criar algo extraordinário.</p>
+                <button class="magnetic cta-btn outline">Saiba Mais</button>
+            </div>
+            <div class="about-image parallax-container">
+                <img src="assets/profile.jpeg" alt="Aurelio Miguel Portrait" class="parallax-img 3d-hover">
+            </div>
+        </section>
+
+        <section class="services">
+            <h2 class="reveal-text text-center">Posso te ajudar com</h2>
+            <div class="services-grid">
+                <div class="service-card blur-reveal">
+                    <h3>Edição</h3>
+                    <p>Cortes dinâmicos, transições perfeitas e ritmo narrativo para manter o público engajado.</p>
+                </div>
+                <div class="service-card blur-reveal" style="transition-delay: 0.1s;">
+                    <h3>Correção de Cor</h3>
+                    <p>Grading cinematográfico, criação de atmosfera e consistência visual em cada cena.</p>
+                </div>
+                <div class="service-card blur-reveal" style="transition-delay: 0.2s;">
+                    <h3>Sound Design</h3>
+                    <p>Áudio imersivo, foley e diálogos cristalinos que dão vida ao seu filme.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="work" id="work">
+            <h2 class="reveal-text text-center">Trabalhos em Destaque</h2>
+            <div class="carousel-controls blur-reveal" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; position: relative; z-index: 10000;">
+                <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" style="pointer-events: all; cursor: pointer;">&#8592;</button>
+                <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)" style="pointer-events: all; cursor: pointer;">&#8594;</button>
+            </div>
+            <script>
+                function moveCarousel(direction) {
+                    var carousel = document.querySelector('.work-carousel');
+                    if (carousel) {
+                        var itemWidth = carousel.querySelector('.work-item').offsetWidth || 500;
+                        carousel.scrollLeft += direction * (itemWidth + 48); // 48 is the gap
+                    }
+                }
+            </script>
+            <div class="work-carousel blur-reveal">
+                <div class="work-item">
+                    <img src="assets/sci_fi.png" alt="Film Set" class="3d-hover">
+                    <div class="work-overlay">
+                        <h3>Neon Shadows</h3>
+                        <p>Curta Sci-Fi | Diretor, DP, Editor</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="assets/music_video.png" alt="Music Video" class="3d-hover">
+                    <div class="work-overlay">
+                        <h3>Midnight Echoes</h3>
+                        <p>Videoclipe | Edição, Cor</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="assets/documentary.png" alt="Documentary" class="3d-hover">
+                    <div class="work-overlay">
+                        <h3>Wild Horizons</h3>
+                        <p>Documentário | Diretor, Editor</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="assets/commercial.png" alt="Commercial" class="3d-hover">
+                    <div class="work-overlay">
+                        <h3>Velocità</h3>
+                        <p>Comercial Automotivo | Edição, Sound Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact" id="contact" style="align-items: center; text-align: center;">
+            <h2 class="reveal-text" style="font-size: 5rem;">Vamos Trabalhar Juntos</h2>
+            <p class="blur-reveal" style="margin-bottom: 3rem;">Pronto para elevar o nível do seu projeto de vídeo?</p>
+            <button class="magnetic cta-btn" style="font-size: 1.5rem; padding: 1.5rem 4rem;">hello@aureliomiguel.com</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
