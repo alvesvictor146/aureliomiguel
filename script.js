@@ -1,6 +1,28 @@
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger);
 
+// ── Contact Video: Slow Motion ──────────────────────────────────────────────
+const contactVideo = document.getElementById('contactVideo');
+if (contactVideo) {
+    // Set slow-motion playback: 0.35x speed (35% of normal)
+    contactVideo.playbackRate = 0.35;
+
+    // Guarantee playbackRate persists after browser buffering events
+    contactVideo.addEventListener('canplay', () => { contactVideo.playbackRate = 0.35; });
+    contactVideo.addEventListener('ratechange', () => {
+        if (contactVideo.playbackRate !== 0.35) contactVideo.playbackRate = 0.35;
+    });
+
+    // Fade the video in smoothly after metadata loads
+    contactVideo.addEventListener('loadedmetadata', () => {
+        gsap.fromTo(contactVideo,
+            { opacity: 0 },
+            { opacity: 0.45, duration: 2.5, ease: 'power2.inOut' }
+        );
+    });
+}
+// ──────────────────────────────────────────────────────────────────────────────
+
 // Custom Cursor & Mouse Follow
 const cursor = document.querySelector('.cursor');
 const hoverElements = document.querySelectorAll('a, button, .service-card, .work-item');
